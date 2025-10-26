@@ -1,14 +1,15 @@
 package com.bip.service;
 
 import java.beans.Transient;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bip.DTO.BeneficioCadastroDTO;
+import com.bip.DTO.BeneficioRetornoDTO;
 import com.bip.mapper.BeneficioMapper;
 import com.bip.model.Beneficio;
 import com.bip.repository.BeneficioRepository;
@@ -28,13 +29,25 @@ public class BeneficioService {
 
 	}
 
-	public List<String> listaBeneficios() {
-		List<String> retorno = new ArrayList<>();
+	public List<BeneficioRetornoDTO> listaBeneficios() {
 		List<Beneficio> beneficios = repository.findAll();
+		List<BeneficioRetornoDTO> retorno = beneficios
+				.stream()
+				.map(mapper::entiryToRetorno)
+				.collect(Collectors.toList());
 		
-		beneficios.forEach(b -> b.getNome());
-
 		return retorno;
+	}
+
+	public Beneficio detalhaBeneficio(long id) {
+		Optional<Beneficio> beneficio = repository.findById(id);
+		if (beneficio.isPresent()) {
+			return beneficio.get();
+
+		} else {
+			throw new RuntimeException("Beneficio não encontrado! (id " + id + ")");
+		}
+
 	}
 
 	@Transient
@@ -49,7 +62,7 @@ public class BeneficioService {
 		return repository.save(beneficio);
 	}
 
-	public void ExcluirBeneficio(Long id) {
+	public void excluirBeneficio(Long id) {
 		Optional<Beneficio> beneficio = repository.findById(id);
 		if (beneficio.isPresent()) {
 			repository.delete(beneficio.get());

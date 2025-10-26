@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.bip</groupId>
+        <artifactId>bip-ear</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    
+    <artifactId>bip-ear</artifactId>
+    <packaging>ear</packaging>
+    
+    <dependencies>
+ 		<dependency>
+            <groupId>com.bip</groupId>
+            <artifactId>bip-ear-ejb</artifactId>
+            <type>ejb</type>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.bip</groupId>
+            <artifactId>bip-ear-web</artifactId>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <finalName>bip-ear</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <version>8</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <fileNameMapping>no-version</fileNameMapping>
+                    <modules>
+                        <ejbModule>
+                            <groupId>com.empresa</groupId>
+                            <artifactId>bip-ear-ejb</artifactId>
+                            <bundleFileName>bip-ejb.jar</bundleFileName>
+                        </ejbModule>
+                        <webModule>
+                            <groupId>com.empresa</groupId>
+                            <artifactId>bip-ear-web</artifactId>
+                            <bundleFileName>bip-web.war</bundleFileName>
+                            <contextRoot>/bip-ear-web</contextRoot>
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

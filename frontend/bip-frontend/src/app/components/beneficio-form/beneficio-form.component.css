@@ -1,0 +1,144 @@
+.beneficio-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.form-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.mode-badges .badge {
+  font-size: 0.8em;
+  padding: 5px 10px;
+}
+
+.badge.view { background-color: #6c757d; }
+.badge.edit { background-color: #fd7e14; }
+.badge.new { background-color: #198754; }
+
+.beneficio-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.view-actions, .edit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.form-control:read-only {
+  background-color: #f8f9fa;
+  border-color: #e9ecef;
+}
+
+.form-control:disabled {
+  background-color: #e9ecef;
+  opacity: 1;
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.beneficio-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.form-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.mode-badges .badge {
+  font-size: 0.8em;
+  padding: 5px 10px;
+}
+
+.badge.view { background-color: #6c757d; }
+.badge.edit { background-color: #fd7e14; }
+.badge.new { background-color: #198754; }
+
+.beneficio-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.view-actions, .edit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.form-control:read-only {
+  background-color: #f8f9fa;
+  border-color: #e9ecef;
+}
+
+.form-control:disabled {
+  background-color: #e9ecef;
+  opacity: 1;
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.invalid-feedback {
+  display: block;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+             http://xmlns.jcp.org/xml/ns/javaee/application_8.xsd" 
+             version="8">
+  
+  <display-name>BIP EAR modulo</display-name>
+  
+  
+  <!-- Módulo EJB -->
+  <module>
+    <ejb>bip-ear-ejb-0.0.1-SNAPSHOT.ejb</ejb>
+  </module>
+  
+  <!-- Módulo WEB -->
+  <module>
+    <web>
+      <web-uri>bip-ear-web-0.0.1-SNAPSHOT.war</web-uri>
+      <context-root>/bip-ear-web</context-root>
+    </web>
+  </module>
+  
+  <library-directory>lib</library-directory>
+</application>

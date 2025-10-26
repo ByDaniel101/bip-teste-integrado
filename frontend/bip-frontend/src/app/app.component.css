@@ -1,0 +1,29 @@
+.navbar-brand {
+  font-weight: 600;
+}
+
+.nav-link {
+  transition: all 0.3s ease;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .nav-item {
+    margin: 5px 0;
+  }
+}

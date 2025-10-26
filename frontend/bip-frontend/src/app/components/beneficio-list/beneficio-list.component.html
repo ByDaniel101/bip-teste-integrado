@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>
+      <i class="fas fa-list me-2"></i>
+      Lista de Benefícios
+    </h2>
+    <button class="btn btn-primary" (click)="novoBeneficio()">
+      <i class="fas fa-plus me-1"></i>Novo Benefício
+    </button>
+  </div>
+
+  <div *ngIf="carregando" class="alert alert-info text-center">
+    <i class="fas fa-spinner fa-spin me-2"></i>
+    Carregando benefícios...
+  </div>
+
+  <div *ngIf="erro && !carregando" class="alert alert-danger">
+    <i class="fas fa-exclamation-triangle me-2"></i>
+    {{ erro }}
+    <button class="btn btn-sm btn-outline-danger ms-2" (click)="carregarBeneficios()">
+      <i class="fas fa-redo me-1"></i>Tentar Novamente
+    </button>
+  </div>
+
+  <div *ngIf="!carregando && !erro">
+    <div class="card">
+      <div class="card-header bg-light">
+        <h5 class="mb-0">
+          <i class="fas fa-table me-2"></i>
+          Benefícios Cadastrados ({{ beneficios.length }})
+        </h5>
+      </div>
+      <div class="card-body p-0">
+        <table class="table table-striped table-hover mb-0">
+          <thead class="table-dark">
+            <tr>
+              <th width="80">#</th>
+              <th>Benefício</th>
+              <th>Valor</th>
+              <th>Status</th>
+              <th width="200" class="text-center">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let beneficio of beneficios; let i = index">
+              <td class="fw-bold">{{ i }}</td>
+              <td>
+                <i class="fas fa-gift text-primary me-2"></i>
+                {{ beneficio.nome }}
+              </td>
+              <td>
+                <i class="fas fa-gift text-primary me-2"></i>
+                {{ beneficio.valor }}
+              </td>
+              <td>
+                <i class="fas fa-gift text-primary me-2"></i>
+                {{ beneficio.ativo }}
+              </td>
+              <td class="text-center">
+                <div class="btn-group btn-group-sm" role="group">
+                  <button class="btn btn-outline-info" 
+                          (click)="visualizarBeneficio(i)"
+                          title="Visualizar Detalhes">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  
+                  <button class="btn btn-outline-primary" 
+                          (click)="editarBeneficio(i)"
+                          title="Editar Benefício">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  
+                  <button class="btn btn-outline-danger" 
+                          (click)="excluirBeneficio(i)"
+                          title="Excluir Benefício">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div *ngIf="beneficios.length === 0" class="text-center py-4">
+          <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+          <h5 class="text-muted">Nenhum benefício cadastrado</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
